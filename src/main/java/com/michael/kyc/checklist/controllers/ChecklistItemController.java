@@ -20,6 +20,12 @@ public class ChecklistItemController {
     public List<ChecklistItem> getAllChecklistItems() {
         return checklistItemService.getAllChecklistItems();
     }
+
+    @GetMapping("/{id}")
+    public ChecklistItem getChecklistItem(@PathVariable Long id) {
+        return checklistItemService.getChecklistItem(id);
+    }
+
     @GetMapping("/customer/{customerId}")
     public List<ChecklistItem> getChecklistItemsByCustomerId(
             @PathVariable Long customerId

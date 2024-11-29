@@ -23,6 +23,8 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+    public Customer getCustomerById(Long id) { return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found."));};
+
     public Customer addCustomer(Customer customer) {
         customer.setKycStatus("in-progress");
         customer.setKycDateInitiated(LocalDate.now());

@@ -17,8 +17,19 @@ public class CustomerController {
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
+
+    @GetMapping("/{id}")
+    public Customer getCustomerById(@PathVariable("id") Long id) {
+        return customerService.getCustomerById(id);
+    }
+
     @PostMapping
     public Customer addCustomer(@RequestBody Customer customer) {
         return customerService.addCustomer(customer);
+    }
+
+    @PostMapping("/complete/{id}")
+    public String completeCustomer(@PathVariable("id") Long id) {
+        return customerService.completeKyc(id);
     }
 }

@@ -22,6 +22,10 @@ public class ChecklistItemService {
         return checklistItemRepository.findAll();
     }
 
+    public ChecklistItem getChecklistItem(Long id) {
+        return checklistItemRepository.findById(id).orElseThrow(() -> new RuntimeException("Checklist item not found."));
+    }
+
     public List<ChecklistItem> getChecklistItemsByCustomerId(Long customerId) {
         return checklistItemRepository.findByCustomerId(customerId);
     }
